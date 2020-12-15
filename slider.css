@@ -4,13 +4,14 @@ body {
 }
 
 img {
+  width: 100%;
   max-width: 100%;
   display: block;
   pointer-events: none;
 }
 
 .slider-container{
-  max-width: 960px;
+  max-width: 700px;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
@@ -28,6 +29,8 @@ img {
   position: absolute;
   bottom: 1rem;
   left: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -39,6 +42,8 @@ img {
   opacity: .3;
   margin-right: .5rem;
   cursor: pointer;
+  -webkit-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
 }
 .dots span.dots_active{
@@ -54,16 +59,28 @@ img {
 }
 
 .slider{
-  user-select: none;  
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;  
+  -webkit-transition: all .4s ease-in-out;  
+  -o-transition: all .4s ease-in-out;  
   transition: all .4s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  transform: translateX(0);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
   will-change: transform;
 }
 
 .slider .slider__item{
-  flex-shrink: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   width: 100%;
 }
 
@@ -72,8 +89,12 @@ img {
 }
 
 .arrows{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 1rem;
 }
 
@@ -81,7 +102,10 @@ img {
   cursor: pointer;
   font-size: 3rem;
   line-height: 1;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   display: inline-block;
   margin: 0 1rem; 
 }
@@ -93,9 +117,13 @@ img {
 }
 
 .slider-execution-line__progress{
+  background: -webkit-gradient(linear, right top, left top, from(#5f5f5f), to(#c1c1c1));
+  background: -o-linear-gradient(right, #5f5f5f, #c1c1c1);
   background: linear-gradient(to left, #5f5f5f, #c1c1c1);
   width: 0%;
   height: 100%;
-  transition: width .7s ease-in-out;
+  -webkit-transition: width .9s ease-in-out;
+  -o-transition: width .9s ease-in-out;
+  transition: width .9s ease-in-out;
 }
 
