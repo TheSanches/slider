@@ -1,8 +1,8 @@
 function slider(set) {
-	const sliderContainer = document.querySelector('.slider-container'),
-		slider = document.querySelector('.slider'),
+	const sliderContainer = document.querySelector(set.name),
+		slider = sliderContainer.querySelector('.slider'),
 		sliderItem = slider.querySelectorAll('.slider__item'),
-    sliderArrows = document.querySelectorAll('.arrows__item');
+    sliderArrows = sliderContainer.querySelectorAll('.arrows__item');
     
 	let dotsCreate,
 		dotsClass,
@@ -93,7 +93,7 @@ function slider(set) {
     
 		// move slides by clicking on the dot
 		dotsFunk = function() {
-			const dotsWork = document.querySelectorAll('.dots span'); // we get dots
+			const dotsWork = sliderContainer.querySelectorAll('.dots span'); // we get dots
 			dotsWork.forEach((item, i) => {
 				dotsClass(dotsWork[i], dotsWork[count]);
 				item.addEventListener('click', function() {
@@ -133,7 +133,7 @@ function slider(set) {
     numberSlider(0);
     
 		numberSliderWork = function(item) {
-			const sliderNumberNow = document.querySelector('.count-slides span');
+			const sliderNumberNow = sliderContainer.querySelector('.count-slides span');
 			sliderNumberNow.innerHTML = item + 1;
 			if(set.line) {
 				sliderExecutionLineWork(item);
@@ -154,7 +154,7 @@ function slider(set) {
     sliderExecutionLine();
     
 		sliderExecutionLineWork = function(itemCount) {
-			const sliderLineProgress = document.querySelector('.slider-execution-line__progress');
+			const sliderLineProgress = sliderContainer.querySelector('.slider-execution-line__progress');
 			let t = 100 / sliderItem.length; // how much % each slide takes
 			t *= (itemCount + 1);
 			sliderLineProgress.style.width = `${t}%`;
@@ -164,7 +164,14 @@ function slider(set) {
 }
 
 slider({
+	name: ".your-class-1",
 	dots: true,
 	numberSlid: true,
 	line: true
+});
+
+slider({
+	name: ".your-class-2",
+	dots: true,
+	numberSlid: true
 });
